@@ -1,0 +1,21 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+	<div id="footer">
+      <div id="footerNav">
+
+         <a href="<c:url value="/default.jsp"/>">Home</a> |
+        <a href="http://kmsp.nci.nih.gov/" target="_blank">KMSP Sharepoint</a> |
+        <a href="http://kmsp.nci.nih.gov/itsemi/" target="_blank">KMSP/ITSemiotics Sharepoint</a> |
+        <a href="mailto:ncikmsp-support@itsemiotics.com">Contact Us</a>
+
+      </div>
+
+      <a href="http://www.hhs.gov/"><img src="<c:url value="/images/footer-hhs.gif"/>" alt="Department of Health and Human Services" width="39" height="31"/></a>
+      <a href="http://www.nih.gov/"><img src="<c:url value="/images/footer-nih.gif"/>" alt="National Institutes of Health" width="46" height="31"/></a>
+      <a href="http://www.usa.gov/"><img src="<c:url value="/images/footer-usagov.gif"/>" alt="USA.gov" width="91" height="31"/></a>
+    </div> <!-- footer -->

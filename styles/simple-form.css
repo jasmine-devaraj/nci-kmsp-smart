@@ -1,0 +1,270 @@
+@CHARSET "ISO-8859-1";
+
+/*****************************************************************************/
+/* Global styles
+/*****************************************************************************/
+
+body {
+    height: auto !important;
+    background: #FFFFFF;
+    text-align: center;
+    margin: 0;
+}
+
+a       { color: #215284; font-weight: bold; text-decoration: underline; }
+a:hover { color: #336699; text-decoration: none; }
+a img   { border: 0; }
+
+em     { font-style: italic; }
+strong { font-weight: bold; }
+sup    { font-family: Verdana, Arial, sans-serif; color: #666666; font-size: 8px; }
+
+ol    { margin-left: 25px; }
+ol li { margin: 5px 0 0 5px; }
+
+ul           { list-style-type: none; margin: 0; padding: 0; }
+ul.ulDisc    { list-style-type: disc;  margin-left: 15px; }
+ul.ulDisc li { padding-top: 4px; margin-left: 25px; }
+
+.alignLeft  { float: left; }
+.alignRight { float: right; }
+
+dl { margin: 0; padding: 0;}
+dt { margin: 7px 0 0 0; font-weight: bold; }
+dd { margin: 0 0 0 20px; }
+
+.small   { font-size: 11px; font-weight: normal; }
+.small a { font-size: 11px; }
+
+.footnotes { margin: 0 0 0 10px; }
+.footnote  { font-family: Verdana, Arial, sans-serif; font-size: 9px; font-weight: normal; color: #888888;}
+
+p {
+    margin: 8px 0 8px 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333333;
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+h3 {
+    font-size: 16px;
+    color: #333333;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+h4 {
+    font-size: 12px;
+    color: #333333;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+/*****************************************************************************/
+/* Page container & page headers
+/*****************************************************************************/
+
+#container {
+	width: 1000px;
+    background: #FFFFFF;
+    height: 100%;
+	margin: 0 auto; /* Centers page on FF1+, IE7 */
+    padding: 0;
+}
+
+#nci-banner { display: none; }
+
+#pageHeader                            { display: none; }
+#pageHeader #headerBanner              { display: none; }
+#pageHeader #homePageHeaderBanner      { display: none; }
+#pageHeader #headerBanner #nfrp-banner { display: none; }
+#pageHeader #headerBanner #headImage   { display: none; }
+
+
+/*****************************************************************************/
+/* Navigation menu
+/*****************************************************************************/
+
+/* Provides for current page highlighting */
+body#home a#navHome,
+body#search a#navSearch,
+body#help a#navHelp,
+body#about a#navAbout,
+body#contact a#navContact {
+	background: #336699;
+
+}
+
+#mainNav         { display: none; }
+
+/*****************************************************************************/
+/* Content level styles
+/*****************************************************************************/
+
+#content {
+ 	font-family: Arial, Verdana, Tahoma, sans-serif;
+    margin: 5px;
+    /*min-height: 500px;*/
+    /*height:auto !important;  min-height hack for IE6*/
+    /*height:500px;            min-height hack for IE6*/
+    /*padding: 0;*/
+    font-size: 12px;
+	color: #333333;
+	text-align: left;
+	width: 99%;
+}
+
+#leftColumn  { width: 26%; float: left; }
+#rightColumn { width: 71%; float: left; margin: 0 0 0 15px; }
+
+
+.popup { display: none; }
+
+/*****************************************************************************/
+/* Sidebar
+/*****************************************************************************/
+
+.sidebar { display: none; }
+
+/*****************************************************************************/
+/* Forms
+/*****************************************************************************/
+form {
+    margin: 0;
+    padding: 0;
+}
+.buttonsTop { clear: both; visibility: hidden; }
+
+.buttonsBottom { clear: both; visibility: hidden; }
+
+input.submitButton { font-size: 12px; }
+input.resetButton  { }
+
+#content a.resetLink { font-size: 13px; font-weight: bold; }
+
+.alert { color: red; }
+select { font-size: 12px; }
+
+ul.resultForm    { margin: 0; }
+ul.resultForm li { margin: 0 0 0 10px; }
+
+ul.pageSize      {}
+ul.pageSize li   { margin: 0 0 0 10px; }
+
+.opt {
+    font-size: 9px;
+    margin-left: 5px;
+    color: #336699;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.opt:hover {
+    text-decoration: none;
+}
+
+/*****************************************************************************/
+/* Error styles
+/*****************************************************************************/
+
+#contentError {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    margin: 50px 15px 150px 20px;
+    text-align: left;
+    }
+
+#errorHeading {
+    font-size: 18px;
+    color: #A90101;
+    font-weight: bold;
+    margin: 20px 0 20px 5px;
+}
+
+#errorMessage {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+    margin: 20px 0 20px 15px;
+    text-align: left;
+}
+
+#contentError a {
+    font-weight: normal;
+    color: #003366;
+    text-decoration: underline;
+}
+
+#contentError a:hover {
+    color: #336699;
+    text-decoration: none;
+}
+
+#errorMessage ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 50px;
+}
+
+#errorMessage ul li {
+    list-style-type: disc;
+    margin: 5px 0 5px 0;
+}
+
+#contentError dl {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 10px 0 0 20px;
+}
+#contentError dd {
+
+}
+#contentError dt {
+
+}
+
+#contentError .param {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+/*******************************************************************************/
+/* Styles for the modal popups
+/*******************************************************************************/
+#veilDiv { display: none; }
+
+/**** Lookup from advanced form ****/
+
+.lookupPopup { display: none; }
+
+/**** Search results refinement ****/
+
+.refinePopup { display: none; }
+
+/*****************************************************************************/
+/* Footer
+/*****************************************************************************/
+
+
+#footer { display: none; }
+
+#printFooter { display: block; }
+
+#footerNav { display: none; }

@@ -1,0 +1,542 @@
+@CHARSET "ISO-8859-1";
+
+/*****************************************************************************/
+/* Global styles
+/*****************************************************************************/
+
+body {
+    height: auto !important;
+    background: #DAD0BC;
+    text-align: center;
+    margin: 0;
+}
+
+a       { color: #215284; font-weight: bold; text-decoration: underline; }
+a:hover { color: #336699; text-decoration: none; cursor:hand }
+a img   { border: 0; }
+
+em     { font-style: italic; }
+strong { font-weight: bold; }
+sup    { font-family: Verdana, Arial, sans-serif; color: #666666; font-size: 8px; }
+
+ol    { margin-left: 25px; }
+ol li { margin: 5px 0 0 5px; }
+
+ul           { list-style-type: none; margin: 0; padding: 0; }
+ul.ulDisc    { list-style-type: disc;  margin-left: 15px; }
+ul.ulDisc li { padding-top: 4px; margin-left: 25px; }
+
+.alignLeft  { float: left; }
+.alignRight { float: right; }
+
+dl { margin: 0; padding: 0;}
+dt { margin: 7px 0 0 0; font-weight: bold; }
+dd { margin: 0 0 0 20px; }
+
+.small   { font-size: 11px; font-weight: normal; }
+.small a { font-size: 11px; }
+
+.footnotes { margin: 0 0 0 10px; }
+.footnote  { font-family: Verdana, Arial, sans-serif; font-size: 9px; font-weight: normal; color: #888888;}
+
+p {
+    margin: 8px 0 8px 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+h1 {
+    font-size: 18px;
+    color: #01364F;
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+}
+
+h2 {
+    font-size: 17px;
+    color: #01364F;
+    font-weight: bold;
+    border-bottom: 1px solid #999999;
+    margin: 10px 0 5px 0;
+}
+
+h3 {
+    font-size: 14px;
+    color: #A90101;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+h4 {
+    font-size: 12px;
+    color: #333333;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+/*****************************************************************************/
+/* Page container & page headers
+/*****************************************************************************/
+
+#container {
+	width: 1000px;
+    background: #FFFFFF;
+    height: 100%;
+	margin: 0 auto; /* Centers page on FF1+, IE7 */
+    padding: 0;
+}
+
+#nci-banner {
+    background: #FFFFFF url(../images/bg-image.gif) repeat-x;
+    text-align: left;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100px;
+}
+
+
+#pageHeader                            { width: 100%; }
+#pageHeader #headerBanner              { height: 75px; width: 100%; background: url("../images/nfrp-banner.gif") no-repeat top left; }
+
+#pageHeader #headerBanner #introText {
+    float: right;
+    width: 25%;
+    margin: 15px 0 0 0;
+    color: #333333;
+    text-align: left;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.skipToContentLink {
+    text-align: left;
+    margin: 0 1em 0 1em;
+}
+
+.skipToContentLink a {
+    font-size: 9px;
+    font-family: sans-serif;
+    color: #df8a8a;
+    text-align: right;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.skipNavLink { text-align: center; }
+.skipNavLink a {
+    font-size: 10px;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: #7891b1;
+    text-align: right;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+/*****************************************************************************/
+/* Navigation menu
+/*****************************************************************************/
+
+/* Provides for current page highlighting */
+body#home a#navHome,
+body#search a#navSearch,
+body#help a#navHelp,
+body#about a#navAbout,
+body#contact a#navContact {
+	background: #336699;
+
+}
+
+#mainNav {
+    clear: both;
+    background: #2B5369; /*0D4D6B*/
+    height: 25px;
+}
+
+#mainNav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#mainNav ul li {
+    float: left;
+    text-align: center;
+}
+
+#mainNav ul li a {
+	display: block;
+	line-height: 25px;
+	font-size: 12px;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #FFFFFF;
+	background: #2B5369;
+    text-decoration: none;
+	border-right: 1px solid #CCCCCC;
+	margin: 0;
+	padding: 0 25px 0 25px;
+}
+
+#mainNav ul li a:hover {
+    background-color: #336699;
+}
+
+/*****************************************************************************/
+/* Content level styles
+/*****************************************************************************/
+
+#content {
+          font-family: Arial, Verdana, Tahoma, sans-serif;
+          margin: 15px 5px 0 5px;
+          /*min-height: 500px;*/
+          /*height:auto !important;  min-height hack for IE6*/
+          /*height:500px;            min-height hack for IE6*/
+          /*padding: 0;*/
+          font-size: 12px;
+          color: #333333;
+          text-align: left;
+          width: 99%;
+          height:100%;
+      }
+#leftColumn  { width: 26%; float: left; }
+#rightColumn { width: 71%; float: left; margin: 0 0 0 15px; }
+
+
+.popup {
+    background: #FDFDEE;
+    text-align: left;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    display: none;
+    position: absolute;
+    z-index: 500;
+}
+
+/*****************************************************************************/
+/* Sidebar
+/*****************************************************************************/
+
+#sidebar {
+	width: 235px;
+    border: 1px solid #CCCCCC;
+    margin: 15px 0 0 10px;
+    background: #ECF0F5;
+}
+
+#sidebar h1 {
+    width: 90%;
+	margin: 5px auto 0 auto;
+    text-align: center;
+    font-size: 18px;
+    color:#6C6C6C;
+    font-weight:bold;
+}
+
+#sidebar ul {
+    margin: 5px 0 0 0;
+}
+
+#sidebar ul li {
+    list-style: inside url("../images/redArrow.gif");
+    margin: 20px 0 20px 5px;
+}
+
+#sidebar ul li a {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#sidebar ul p {
+    margin: 2px 8px 10px 15px;
+    font-size: 11px;
+    color: #555555;
+}
+
+/*****************************************************************************/
+/* Forms (shared)
+/*****************************************************************************/
+form {
+    margin: 0;
+    padding: 0;
+}
+
+.buttonsTop {
+    clear: both;
+    margin: 0;
+    background: #F3F3EC;   /*F3F3EC*/
+    border-top: 1px solid #CCCCCC;
+    padding: 5px;
+    height: 30px;
+    border-collapse: collapse;
+}
+
+.buttonsTop td {
+    vertical-align: bottom;
+}
+
+.buttonsBottom {
+    clear: both;
+    margin-top: 10px;
+    background: #F3F3EC;  /*F3F3EC*/
+    border-bottom: 1px solid #CCCCCC;
+    padding: 5px;
+    height: 25px;
+    border-collapse: collapse;
+}
+
+.buttonsBottom td {
+    vertical-align: middle;
+}
+
+input.submitButton     { font-size: 12px; }
+input.resetButton      { }
+
+#content a.resetLink { font-size: 13px; font-weight: bold; }
+
+.alert { color: red; }
+select { font-size: 12px; }
+
+ul.resultForm    { margin: 0; }
+ul.resultForm li { margin: 0 0 0 10px; }
+
+ul.pageSize      {}
+ul.pageSize li   { margin: 0 0 0 10px; }
+
+.opt {
+    font-size: 9px;
+    margin-left: 5px;
+    color: #336699;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.opt:hover {
+    text-decoration: none;
+}
+
+/*****************************************************************************/
+/* Error styles
+/*****************************************************************************/
+
+#contentError {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    margin: 50px 15px 150px 20px;
+    text-align: left;
+    }
+
+#errorHeading {
+    font-size: 18px;
+    color: #A90101;
+    font-weight: bold;
+    margin: 20px 0 20px 5px;
+}
+
+#errorMessage {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+    margin: 20px 0 20px 15px;
+    text-align: left;
+}
+
+#contentError a {
+    font-weight: normal;
+    color: #003366;
+    text-decoration: underline;
+}
+
+#contentError a:hover {
+    color: #336699;
+    text-decoration: none;
+}
+
+#errorMessage ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 50px;
+}
+
+#errorMessage ul li {
+    list-style-type: disc;
+    margin: 5px 0 5px 0;
+}
+
+#contentError dl {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 10px 0 0 20px;
+}
+#contentError dd {
+
+}
+#contentError dt {
+
+}
+
+#contentError .param {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+/*******************************************************************************/
+/* Styles for the modal popups
+/*******************************************************************************/
+
+/* The veil height attribute below is an arbitrary value for the veil's height. Due to 508
+ * restrictions we cannot use JavaScript to place the veil over the document and we have no
+ * reliable method of determining the document's height for dynamic positioning, so we provide
+ * a largest expected value. In this case, 3250px is roughly the size of the advanced form, so the
+ * veil is guaranteed to at least cover this much.
+ */
+#veilDiv {
+  position: absolute;
+  background: black url('../images/blackdot.gif');
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3250px;   /* See note above */
+  z-index: 400;
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.alpha(opacity=60);
+  opacity: 0.6;
+}
+
+.popupSearchButton {
+    height: 100%;
+    display: inline;
+    margin: auto auto;
+    vertical-align: middle;
+    padding: 7px 0 0 5px;
+}
+
+/**** Lookup from advanced form ****/
+
+.lookupPopup {
+  background: #F4F7FC;
+  text-align: left;
+  border: 3px solid #CCCCCC;
+  top: 20%;     /* Added to replace JavaScript positioning */
+  left: 30%;    /* Added to replace JavaScript positioning */
+  width: 500px;
+  height: 440px;
+  padding: 10px;
+  visibility:hidden;
+  position: absolute;
+  z-index: 500;
+}
+
+.lookupPopupInner {
+  background: #FFFFFF;
+  text-align: left;
+  border: 1px solid #CCCCCC;
+  width: 490px;
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 5px;
+}
+
+.previouslySelected {
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  background: #FDFDEE;
+  border: 1px solid #CCCCCC;
+  width: 490px;
+  height: 75px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5px;
+}
+
+.previouslySelected p {
+  margin: 0 0 0 5px;
+  padding: 3px;
+}
+
+/**** Search results refinement ****/
+
+.refinePopup {
+  background: #F4F7FC;
+  text-align: left;
+  border: 3px solid #CCCCCC;
+  top: 20%;     /* Added to replace JavaScript positioning */
+  left: 30%;    /* Added to replace JavaScript positioning */
+  width: 500px;
+  height: 540px;
+  padding: 10px;
+  visibility: hidden;
+  position: absolute;
+  z-index: 500;
+}
+
+.refinePopupInner {
+  background: #FFFFFF;
+  text-align: left;
+  border: 1px solid #CCCCCC;
+  width: 490px;
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 5px;
+}
+
+.refinePopup .criteriaList {
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  background: #FFFFFF;    /*#FDFDEE*/
+  border: 1px solid #CCCCCC;
+  width: 490px;
+  height: 150px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5px;
+}
+
+.refinePopup .criteriaList ul {}
+.refinePopup .criteriaList ul li { padding: 3px 0 3px 5px; }
+.refinePopup .currentCriteria { font-weight: bold; background: #FDFDEE; border: 1px solid #CCC;}
+
+/*****************************************************************************/
+/* Footer
+/*****************************************************************************/
+
+
+#footer {
+    clear: both;
+	height: 140px;
+    margin: 0 auto 0 auto;
+	padding: 10px 0 5px 0;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	text-align: center;
+}
+
+#printFooter {
+    display: none;
+}
+
+#footerNav {
+    width: 90%;
+    border-top: 5px solid #696559;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    margin: auto;
+    padding: 10px;
+}
+
+#footerNav a         { color: #666666; font-weight: normal; }
+#footerNav a:hover   { color: #999999; font-weight: normal; }
+#nci-banner a         { color: black; font-weight: normal; }
+#nci-banner a:hover   { color: black; font-weight: normal; }

@@ -1,0 +1,37 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 12100 Sunset Hills Rd, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+<%@taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ 	<title>NCI Knowledge Management and Special Projects Home</title>
+  	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/styles/report.css"/>" />
+    <link rel="stylesheet" href="<c:url value="/styles/style.css"/>" type="text/css" media="screen" />
+</head>
+<body id="home">
+	<%@include file="/jsp/include/header.jspf"%>
+  	<div id="container">
+    	<div id="content">
+		<div style="padding-left:100px "> 
+		<br>
+		<br><br><br><br>
+		<ul>
+		<li>The Excel/Word file should open up shortly.</li><br>
+		<li>If you happen to see an information bar, follow the steps below:</li><br>
+		<li><ol><li>Click the Information Bar.</li><li>Click <b>Download File.</b></li></ol></li><br>
+		<li><img src="<c:url value="/images/informationBar.gif"/>"/></li>
+		</ul>
+		
+		</div>
+		<table style="height:100px;"><tr></tr></table>
+	</div>
+	<%@include file="/jsp/include/footer.jspf"%>
+  </div> <!-- container -->
+ </body>
+</html>

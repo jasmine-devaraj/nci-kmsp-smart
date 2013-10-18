@@ -1,0 +1,28 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+ <%
+  String lastRefreshDate = (String)session.getAttribute(com.altum.jdbc.web.SystemController.SESSION_LAST_REFRESH_DATE);
+  String linkAcctDaysLeft = (String)session.getAttribute(com.altum.jdbc.web.SystemController.SESSION_LINK_ACCT_DAYS_LEFT);
+ %>
+  <div id="nci-banner">
+  
+   <table width="100%" cellpadding="0" cellspacing="0" border="0" >
+    	<tr >
+    		<td align="left"><img src="<c:url value="/images/nci-logo.gif"/>" alt="National Cancer Institute" width="136" height="75" border="0" usemap="#ncibannermap" /></td>
+		    <td align="right" valign="bottom">
+		    <div id="systemInfoDiv">
+		    <% if(lastRefreshDate != null) { %>
+			    	Data last refreshed <%=lastRefreshDate%><br>
+			    	LINK account will expire in less than <%=linkAcctDaysLeft%> days!
+		    <% } %>
+			</div>
+		    </td>
+    	</tr>
+    </table>
+    
+  </div>

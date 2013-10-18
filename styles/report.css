@@ -1,0 +1,51 @@
+/*
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2007 Altum, Inc.
+ * All rights reserved.
+ */
+
+body, input, select, td, textarea, div, a { 
+	/* Verdana is a sans-serif font, which is the family we are using */
+	font-family:Verdana, Tahoma, Helvetica, Arial, sans-serif; 
+	font-size: 11px;
+}
+
+.hiddenDetail {display:none;}
+.hiddenDollars {
+  display:none;
+  width:275px;
+}
+.displayDetail {display:inline;}
+TABLE {
+  border-collapse:	collapse;
+  border-spacing: 0px;
+}
+THEAD{
+  BACKGROUND-COLOR: #c6c6c6;
+  border-bottom:solid 1px #dedede;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  FONT-SIZE: 0.7em;
+  FONT-STYLE: normal;
+  TEXT-DECORATION: none;
+  COLOR: #5F7BA4;
+  FONT-WEIGHT: bold;
+}
+TD{
+  padding: 5px;
+}
+.spanNormal {
+  BACKGROUND-COLOR: transparent;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  FONT-SIZE: 8pt;
+  FONT-STYLE: normal;
+  FONT-WEIGHT: normal;
+  TEXT-DECORATION: none;
+  COLOR: black;
+  WHITE-SPACE:nowrap;
+}
+.spanError {
+  FONT-WEIGHT:  bolder;
+  COLOR: red;
+}
+

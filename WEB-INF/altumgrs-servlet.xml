@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2009 Altum, Inc.
+  - All rights reserved.
+  -->
+<beans>
+
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="locations">
+			<list>
+				<!-- Replace any (Dollar){key} placeholder in config files with the property value in one of these files. -->
+				<value>/WEB-INF/conf/System.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Configurer that injects attributes into the beans -->
+	<bean id="customPropertyOverrideConfigurer" class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+		<property name="ignoreResourceNotFound"><value>true</value></property>
+		<property name="locations">
+			<list>
+				<!--  These props inject properties into the spring beans, to potentially override commands or other env. specific attributes-->
+				<value>classpath:CustomSpringOverrides.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- ====================================== Views etc =========================================== -->
+	<!-- customSpringConfig.xml may have basename=customViews (which may override baseline views using order=0) -->
+	<bean id="baselineViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views" />
+		<property name="defaultParentView" value="modelView"/>
+		<property name="order" value="1" />
+	</bean>
+	
+<!-- Moved to useContext.xml to avoid integration test issues
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles.TilesConfigurer">
+-->	
+	<!--  Maps exceptions to view names -->
+	<bean id="mappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionAttribute"><value>exception</value></property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.security.AccessControlException">permissionFailure</prop>
+				<prop key="org.springframework.dao.DataAccessException">dataAccessFailure</prop>
+				<prop key="com.ibatis.common.exception.NestedRuntimeException">dataAccessFailure</prop>
+				<prop key="com.altum.query.dao.QueryNotFoundException">dataAccessFailure</prop>
+				<prop key="com.altum.query.manager.ReportRuntimeException">reportEngineFailure</prop>
+				<prop key="com.altum.query.meta.manager.QueryValidationException">validationFailure</prop>
+				<prop key="com.altum.tree.exception.TreeViewValidationException">validationFailure</prop>
+				<prop key="net.sf.jasperreports.engine.JRException">reportEngineFailure</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Multipart form data support -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+
+	<!-- ====================================== IMPORTS =========================================== -->
+
+<!-- To greatly decrease local startup time, comment out any of these and the appropriate mappings section below.  -->
+<!-- Just add a non whitespace character in comment marks like this: -.-  Do non-whitespace or you won't notice in Araxis -->
+<!-- You can also set SystemActions: requests = CacheQueryTableInfo CacheQueryFieldInfo CacheQueryJoinInfo  -->
+<!-- if including treeViewConfig but not codingConfig, comment out codingManager from codeTreeViewAwareSupport  -->
+<!-- -->
+
+	<import resource="jmesaConfig.xml"/>
+
+
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>	
+				<!-- JMESA Mappings  -->
+				<prop key="/report/jmesa/*.grs">jdbcController</prop>
+				<prop key="/report/rcdc/*.grs">reportController</prop>
+				<prop key="/report/generateSpreadsheet.grs">exportController</prop>
+				<prop key="/report/cacheSystemParameters.grs">systemController</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

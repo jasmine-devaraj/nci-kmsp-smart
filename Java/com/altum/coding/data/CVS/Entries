@@ -1,0 +1,23 @@
+/BatchQueryConstants.java/1.7/Mon Jun  8 23:21:41 2009/-kkv/Tnci-release-3_7-tr
+/CodeRulesConstants.java/1.10/Wed Jul  4 01:25:24 2007/-kkv/Tnci-release-3_7-tr
+/CodeRulesFields.java/1.7/Mon Jun  8 23:21:41 2009/-kkv/Tnci-release-3_7-tr
+/CodingFields.java/1.30/Mon Jul 20 20:19:58 2009/-kkv/Tnci-release-3_7-tr
+/CommonFields.java/1.6/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/CommonTokens.java/1.4/Thu Jul 30 15:30:45 2009/-kkv/Tnci-release-3_7-tr
+/DataCollectionQueryFilterDecorator.java/1.7/Wed Mar  8 17:57:01 2006/-kkv/Tnci-release-3_7-tr
+/FolderViewFields.java/1.8/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/GenMinFields.java/1.3/Wed Mar  8 18:05:25 2006/-kkv/Tnci-release-3_7-tr
+/NavigationFields.java/1.11/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/PayLetterFields.java/1.5/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/ProjectReferenceFields.java/1.3/Thu May  8 16:15:14 2008/-kkv/Tnci-release-3_7-tr
+/QueryFields.java/1.27/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/QueryOracleSqlGenerator.java/1.12/Tue Jun 13 15:56:04 2006/-kkv/Tnci-release-3_7-tr
+/QuerySqlGenerationAdaptor.java/1.7/Wed Mar  8 17:30:31 2006/-kkv/Tnci-release-3_7-tr
+/QuerySqlServerSqlGenerator.java/1.10/Tue Jun 13 15:57:00 2006/-kkv/Tnci-release-3_7-tr
+/ReferenceFields.java/1.6/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/ReportConstants.java/1.6/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/SecurityFields.java/1.12/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/SlidingMenuBarFields.java/1.7/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/StyleFields.java/1.4/Mon Jun  8 23:21:42 2009/-kkv/Tnci-release-3_7-tr
+/ToolBarFields.java/1.4/Wed Mar  8 17:30:31 2006/-kkv/Tnci-release-3_7-tr
+D

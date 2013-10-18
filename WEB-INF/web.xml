@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2007 Altum, Inc.
+  - All rights reserved.
+  -->
+    <display-name>AltumGRS</display-name>
+    
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/applicationContext.xml
+		</param-value>
+	</context-param>
+
+ 	<filter>
+	    <filter-name>JsonFilter</filter-name>
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	    <init-param>
+		  <param-name>targetBeanName</param-name>
+		  <param-value>jsonFilter</param-value>
+		</init-param>
+	</filter>
+  
+	
+	<servlet>
+		<servlet-name>springContext</servlet-name>
+		<servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>altumgrs</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param> 
+		    <param-name>publishEvents</param-name> 
+		    <param-value>false</param-value> 
+		</init-param> 
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+
+	<servlet-mapping>
+		<servlet-name>altumgrs</servlet-name>
+		<url-pattern>*.grs</url-pattern>
+	</servlet-mapping>
+  
+	<!-- A "cssx" file is actually a jsp, which changes the content type to be a text/css file for the browser -->
+  <servlet-mapping>
+    <servlet-name>jsp</servlet-name>
+    <url-pattern>*.cssx</url-pattern>
+  </servlet-mapping>
+
+	<!-- A "jsx" file is actually a jsp, which changes the content type to be a text/javascript file for the browser -->
+  <servlet-mapping>
+    <servlet-name>jsp</servlet-name>
+    <url-pattern>*.jsx</url-pattern>
+  </servlet-mapping>
+
+	<!-- A "jspf" file is actually a jsp, which changes the content type to be a text/javascript file for the browser -->
+  <servlet-mapping>
+    <servlet-name>jsp</servlet-name>
+    <url-pattern>*.jspf</url-pattern>
+  </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+<!--
+    <security-constraint>
+    	<web-resource-collection>
+		    <web-resource-name>AltumGRS</web-resource-name>
+		    <description>AltumGRS</description>
+		    <url-pattern>/*</url-pattern>
+		    <http-method>GET</http-method>
+		    <http-method>POST</http-method>
+	    </web-resource-collection>
+	    <auth-constraint>
+	    	<role-name>AltumGRS</role-name>
+    	</auth-constraint>
+    </security-constraint>
+    <login-config>
+    	<auth-method>BASIC</auth-method>
+    </login-config>
+    <security-role>
+        <role-name>AltumGRS</role-name>
+    </security-role>
+-->
+	<jsp-config>
+		<taglib>
+		  <taglib-uri>/tlds/altum.tld</taglib-uri>
+		  <taglib-location>/WEB-INF/tlds/altum.tld</taglib-location>
+		</taglib>
+		<taglib>
+		  <taglib-uri>/tlds/template.tld</taglib-uri>
+		  <taglib-location>/WEB-INF/tlds/template.tld</taglib-location>
+		</taglib>
+		  <taglib>
+		<taglib-uri>/tlds/ob.tld</taglib-uri>
+		  <taglib-location>/WEB-INF/tlds/ob.tld</taglib-location>
+		</taglib>
+		<jsp-property-group>
+		   <url-pattern>*.jsp</url-pattern>
+		   <el-ignored>false</el-ignored> 
+		</jsp-property-group>
+	</jsp-config>
+</web-app>

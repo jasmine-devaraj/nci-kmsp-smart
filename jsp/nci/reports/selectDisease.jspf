@@ -1,0 +1,19 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+ <%@page language="java" session="true" 
+		import="java.util.List,
+				com.altum.jdbc.web.ReportController" %>
+<%
+List<String> reportDisease = (List<String>)session.getAttribute(ReportController.SESSION_REPORT_DISEASE);
+String customDisease = (String)request.getAttribute("customDisease");
+%>
+<select name='obDiseaseArea' size='1'>
+	<%for(int i=0;i<reportDisease.size();i++){%>
+		<option value="<%=reportDisease.get(i)%>" <%=reportDisease.get(i).equals(customDisease)?"selected":"" %>><%=(reportDisease.get(i).indexOf(" (C)")>-1)?reportDisease.get(i).substring(0,reportDisease.get(i).length()-3):reportDisease.get(i)%></option>
+	<%}%>
+</select>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2009 Altum, Inc.
+  - All rights reserved.
+  -->
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true"	/>
+
+	<!--  Sql Map files -->
+	<sqlMap resource="com/altum/jdbc/dao/ibatis/maps/jdbc.xml" />
+
+</sqlMapConfig>

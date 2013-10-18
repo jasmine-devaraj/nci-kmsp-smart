@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2009 Altum, Inc.
+  - All rights reserved.
+  -->
+
+  <tlibversion>1.0</tlibversion>
+  <shortname>altum</shortname>
+  <uri>/tlds</uri>
+  <info>Altum custom tag library</info>
+
+  <!-- Tags supported by this library: 				-->
+  <!-- 		DynamicTable 							-->
+  <!-- 		MessageTables 							-->
+  <!-- 		CodeTypeSelect 							-->
+
+
+  <!-- ######## Start of tag definitions ########## -->
+  <tag>
+    <name>SummaryDynamicTable</name>
+    <tagclass>com.altum.fwk.tlds.navigation.summary.SummaryDynamicTableTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs an HTML table via the DynamicTable mechanism</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>disableOnClick</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+    <attribute>
+      <name>skipTableTags</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+    <attribute>
+      <name>tableHeaderClass</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+  </tag>
+
+  <tag>
+    <name>DynamicTable</name>
+    <tagclass>com.altum.fwk.tlds.navigation.DynamicTableTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs an HTML table via the DynamicTable mechanism</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>disableOnClick</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+    <attribute>
+      <name>skipTableTags</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+    <attribute>
+      <name>tableHeaderClass</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+  </tag>
+
+  <tag>
+    <name>MessageTables</name>
+    <tagclass>com.altum.coding.tlds.MessageTableTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs DynamicTable tags to embed in an HTML page.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>skipHeader</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>dense</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>skipSuccessMessage</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>CodeIdSelect</name>
+    <tagclass>com.altum.coding.tlds.admin.CodeIdSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with code ids associated with the active or filtered org id and type id.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>orgId</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>typeId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>codeId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>CodeGroupIdSelect</name>
+    <tagclass>com.altum.coding.tlds.admin.CodeGroupIdSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with code group ids associated with the active or filtered org id and type id.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>orgId</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>typeId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>groupId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+<tag>
+    <name>CodeCategorySelect</name>
+    <tagclass>com.altum.coding.tlds.admin.CodeCategorySelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with code category names.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>orgId</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>typeId</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>categorySID</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>CodeTypeSelect</name>
+    <tagclass>com.altum.coding.tlds.admin.CodeTypeSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with type ids associated with the active or filtered org id.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>orgId</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>typeId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>OrganizationSelect</name>
+    <tagclass>com.altum.coding.tlds.admin.OrganizationSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with organization ids.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>orgId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag> 
+    <name>StyleSelect</name>
+    <tagclass>com.altum.coding.tlds.admin.StyleSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box filled with Style names</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>cssClass</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag> 
+
+    <name>ReportPage</name>
+    <tagclass>com.altum.fwk.tlds.reports.ReportParameterControl</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Output a parameter to be used by the reports parameter page.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>		
+  </tag>
+  
+  <tag> 
+    <name>Include</name>
+    <tagclass>com.altum.fwk.tlds.utility.Include</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Include file on JSP with this tag. Default context is application level.</info>
+    <attribute>
+      <name>resource</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>		
+    <attribute>
+      <name>context</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>	
+  </tag>
+
+  <tag>
+    <name>DataCollectionSelect</name>
+    <tagclass>com.altum.fwk.tlds.navigation.DataCollectionSelect</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs an HTML select using a DataCollection</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>dataCollectionName</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>displayColumn</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>valueColumn</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>size</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag> 
+    <name>codingRulesListing</name>
+    <tagclass>com.altum.coding.tlds.admin.CodingRulesListing</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a table listing of the currently cached coding rules</info>
+    <attribute>
+      <name>tableName</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag> 
+    <name>QueryFieldSelect</name>
+    <tagclass>com.altum.coding.tlds.QueryFieldSelect</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a select box of query field display descriptions for the specified layout, where the option values are the query field id's</info>
+    <attribute>
+      <name>layoutName</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>layoutId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectName</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onlyQuickSearchFields</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag> 
+    <name>FeedbackLink</name> 
+    <tagclass>com.altum.coding.tlds.Feedback</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a link for users to click to provide system feedback. The source page should be the name of the page that the link is placed on.</info>
+    <attribute>
+      <name>sourcePage</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag> 
+    <name>userSelect</name> 
+    <tagclass>com.altum.coding.tlds.admin.UserSelectTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Outputs a link for users to click to provide system feedback. The source page should be the name of the page that the link is placed on.</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>userId</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onClick</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>includeEmpty</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>canCode</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>hasItems</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>hasValidEmail</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>active</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>inactive</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <name>invisible</name>
+      <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+	<tag>
+		<name>LayoutSelection</name>
+		<tagclass>com.altum.coding.tlds.LayoutSelectTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a select box of layout names, keyed by layout id.</info>
+		<attribute>
+		  <name>name</name>
+		  <required>true</required>
+		  <rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+		  <name>suppressLabel</name>
+		  <required>false</required>
+		  <rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+		  <name>selectedLayoutId</name>
+		  <required>false</required>
+		  <rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+		  <name>filter</name>
+		  <required>false</required>
+		  <rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>OrgTypeCodeSelects</name>
+		<tagclass>com.altum.coding.tlds.OrgTypeCodeSelectsTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a typically hidden Org Select, a Type Select, a Code Select, and a disabled Code ID Input</info>
+		<attribute>
+			<name>mapKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>appendToNames</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>orgSelectOnly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>typeSelectOnly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>codeSelectOnly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>suppressTable</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+ <tag> 
+    <name>Timer</name>
+    <tagclass>com.altum.fwk.tlds.utility.Timer</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Include JavaScript Timer on JSP with this tag. Default context is application level.</info>
+  </tag>
+  
+  <tag>
+    <name>WaitProgress</name>
+    <tagclass>com.altum.fwk.tlds.navigation.WaitProgressTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Output a table with a Message and the progress.gif.</info>
+    <attribute>
+      <name>waitMessage</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>		
+  </tag>
+  
+  <tag>
+    <name>TreeView</name>
+    <tagclass>com.altum.coding.tlds.navigation.TreeViewTag</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Output a yahoo tree view script. The body onload should call initializeTree, passing in the name of the div.</info>
+  </tag>
+
+	<tag>
+		<name>serializeJsonObject</name>
+		<tagclass>com.altum.spring.web.tlds.SerializeBeanToJson</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs the specifed object as json text.</info>
+		<attribute>
+			<name>jsonObject</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>	
+	</tag>
+
+  <tag> 
+    <name>PrintQryParams</name>
+    <tagclass>com.altum.fwk.tlds.utility.PrintQryParams</tagclass>
+	<bodycontent>empty</bodycontent>
+    <info>Output report parameters posted from waitPage.jsp</info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag>
+  
+  	<tag>
+		<name>FieldComponent</name>
+		<tagclass>com.altum.coding.tlds.FieldComponentTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Creates a single Field Component. Field ID is required, and is usually in the request params</info>
+		<attribute>
+			<name>fieldComponent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fieldId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>componentClassName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>size</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>QuickSearch</name>
+		<tagclass>com.altum.coding.tlds.QuickSearchTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Creates the full display for the Quick Search page.</info>
+		<attribute>
+			<name>query</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>labelNotAnchor</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>QSComponentSelection</name>
+		<tagclass>com.altum.coding.tlds.QSComponentSelectionTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Creates the field-possibleComponents joins table.</info>
+		<attribute>
+			<name>query</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>queryComponentSelection</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>requestComponentSelection</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>systemComponentSelection</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<!--  Report Writer Tags -->
+	<tag>
+		<name>FontNameSelect</name>
+		<tagclass>com.altum.query.web.report.tags.FontNameTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a Select box containing standard font names</info>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>selectedValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>	
+	<tag>
+		<name>FontSizeSelect</name>
+		<tagclass>com.altum.query.web.report.tags.FontSizeTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a Select box containing standard font sizes</info>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>selectedValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>ColorSelect</name>
+		<tagclass>com.altum.query.web.report.tags.ColorSelectTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a Select box containing standard font colors as a list of color bars.</info>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>selectedValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>FontStyle</name>
+		<tagclass>com.altum.query.web.report.tags.FontStyleTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a button for bold, italic, and underline.</info>
+		<attribute>
+			<name>boldName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>italicName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>underlineName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>boldInputName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>italicInputName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>underlineInputName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>bold</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>italic</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>underline</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>FontAlignment</name>
+		<tagclass>com.altum.query.web.report.tags.FontAlignmentTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Outputs a button for left, center, and right.</info>
+		<attribute>
+			<name>inputName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>alignment</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<function>
+		<name>round</name>
+		<function-class>java.lang.Math</function-class>
+		<function-signature>double round( double)</function-signature>
+	</function>
+</taglib>

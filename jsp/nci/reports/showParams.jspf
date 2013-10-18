@@ -1,0 +1,26 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+<script language="JavaScript" src="<c:url value="/js/nci/reports/rptUtility.js" />"></script>
+<!-- displays user selected params in a parameter box on the top of the page.
+	 Takes in a map of params and displays the parameter table.
+	 The box toggles as Expand/Collapse
+-->
+<div id="toggle" style="display: none;">
+	<div class="parms">
+		<div id="parmsShow" class="parmsLabel"><a href="javascript:toggleView(true);">Show Parameters</a></div>
+		<div id="parmsHide" class="parmsLabel" style="display:none"><a href="javascript:toggleView(false);">Hide Parameters</a></div>
+		<div id="parms" style="display:none;"><div>&nbsp;</div>
+			<table cellspacing="0" cellpadding="0" class="tblMain">
+				<tr align="center"><td class="tblHeaderCell" colspan="2" >User Selected Parameters</td></tr>
+			<% for(String str : params.keySet()){%>
+				<tr class="tableRow"><td class="tblHeaderCell" align="right" style="width: 150px"><%= str %>:</td><td class="tblCell"><%= params.get(str) %></td></tr>
+			<%}%>
+			</table>
+		</div>
+	</div>
+</div>

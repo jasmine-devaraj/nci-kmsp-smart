@@ -1,0 +1,105 @@
+/************* User Parameters Styles **************/
+.parms { margin: 5px;word-break: break-all;}
+
+.parms table {
+  border-top:    1px solid buttonshadow;
+  border-left:   1px solid buttonshadow;
+  border-right:  1px solid buttonshadow;
+  border-bottom: 1px solid buttonshadow;
+}
+.parms thead {
+  text-align: center;
+}
+.tblMain{
+  border-top:    1000px solid buttonshadow;
+  border-left:   1px solid buttonshadow;
+  border-right:  1px solid buttonshadow;
+  border-bottom: 1px solid buttonshadow;
+}
+.tblHeaderCell{
+  background:    buttonface;
+  font:          menu;
+  border:        1px outset white;
+  cursor:        default;
+  padding-top:   0;
+  padding:       bottom: 0;
+  border-top:    1px solid buttonhighlight;
+  border-left:   1px solid buttonhighlight;
+  border-right:  1px solid buttonshadow;
+  border-bottom: 1px solid buttonshadow;
+  height: 24px;
+}
+.tblCell{
+  color: windowtext;
+  font: menu;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/************* Comparison Options Styles **************/
+.options1 { margin: 5px; white-space: nowrap;}
+.options TABLE {
+  border-collapse:	collapse;
+  border-spacing: 0px;
+  border: solid 1px #5f7ba4;
+}
+.options THEAD {
+  BACKGROUND-COLOR: #c6c6c6;
+  border-bottom:solid 1px #dedede;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  FONT-SIZE: 0.7em;
+  FONT-STYLE: normal;
+  TEXT-DECORATION: none;
+  COLOR: #5F7BA4;
+  FONT-WEIGHT: bold;
+}
+.options TD {
+  padding: 5px;
+}
+.options SPAN {
+  background-color: transparent;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+  white-space:nowrap;
+}
+
+/************* Warning Styles **************/
+.warning{
+  font-family: Arial, Helvetica, sans-serif, Geneva;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+/************* Global Styles **************/
+.navigationImage{
+  float:right;
+  vertical-align: middle;
+}
+.aRight {
+  text-align: right;
+}
+#titleTable {
+  border-collapse:	collapse;
+  border-spacing: 0px;
+  border: solid 1px #5f7ba4;
+}
+#titleTd {
+  BACKGROUND-COLOR: #c6c6c6;
+  border-bottom:solid 1px #dedede;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  FONT-SIZE: 13.5pt;
+  FONT-STYLE: normal;
+  TEXT-DECORATION: none;
+  COLOR: #5F7BA4;
+  FONT-WEIGHT: bold;
+  padding: 5px;
+}
+#titleSpan {
+  font-style: italic;
+}

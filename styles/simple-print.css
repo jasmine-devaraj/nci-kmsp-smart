@@ -1,0 +1,126 @@
+@CHARSET "ISO-8859-1";
+
+table                      { border-collapse: collapse; }
+table td                   { padding: 20px 0 20px 0; }
+table td.fieldHeader       { padding: 25px 0 5px 15px; }
+table td.fieldHeader.fy    { padding: 5px 0 5px 15px; }
+table td.fieldHeader label { font-size: 13px; color: #A90101; font-weight: bold; }
+table td.fieldHeader .label { font-size: 13px; color: #A90101; font-weight: bold; }
+table td.fieldHeader p     { font-size: 11px; color: #555555; font-weight: normal; margin: 5px 0 5px 0;}
+table td.fieldHeader a     { font-size: 10px; color: #666666;}
+table td.field             { width: 100%; padding: 0 0 0 15px;}
+table td.field .controls   { margin-top: 5px; }
+
+.fyVeil {
+    background: #FFFFFF;
+    filter: progid:DXImageTransform.Microsoft.alpha(opacity=60);
+    opacity: 0.6;
+}
+
+.fyVeil .checkListSelect {
+    overflow: hidden;
+}
+
+#formControls {
+    width: 90%;
+    height: 25px;
+    text-align: left;
+    margin: 20px 0 15px 50px;
+    padding: 5px 5px 5px 20px;
+}
+
+#advSearchBanner {
+    width: 660px;
+    height: 115px;
+    padding: 2px;
+}
+
+#advSearchBanner #bannerLeft {
+    width: 495px;
+    height: 90px;
+    float: left;
+    padding: 2px 0 2px 8px;
+    background: #ECF0F5 url('../images/adv-search-banner-left.gif') center right no-repeat;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+#advSearchBanner #bannerLeft h1 { font-size: 12px; color: #333333; font-weight: bold; margin: 10px 0 5px 0; }
+#advSearchBanner #bannerLeft .textBlock { float: left; width: 35%; font-size: 12px; }
+#advSearchBanner #bannerLeft .textBlock ul { list-style: disc inside; margin-left: 20px; }
+#advSearchBanner #bannerLeft .textBlock li { margin: 5px auto; }
+
+#advSearchBanner #bannerRight {
+    width: 115px;
+    height: 92px;
+    float: left;
+    padding: 2px;
+    background: #C9DBED url('../images/adv-search-banner-right.gif') center right no-repeat;
+}
+
+#advSearchBanner #bannerRight #link   { width: 100px; margin: 30px auto; }
+#advSearchBanner #bannerRight #link a { color: #A90101; }
+
+}
+
+.helpText {
+    margin: 3px 0 0 0;
+    color: #666666;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 9px;
+    width: 350px;
+}
+
+.helpLink {
+ padding-left: 5px;
+}
+
+.changeYearImg {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.selectedYear {
+    color: #555555;
+    font-weight: bold;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 16px;
+    vertical-align: middle;
+    padding: 0 0 0 5px;
+}
+
+.resetFieldLink {
+    font-size: 12px;
+    color: #666666;
+}
+
+ul.checkListSelect {
+    overflow-y: scroll;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 3px;
+    margin: 0 0 3px 0;
+}
+
+ul.checkListSelect li {
+    margin: 0;
+    padding: 0;
+}
+
+ul.checkListSelect li.defaultItem {
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 2px;
+    margin: 0;
+}
+
+ul.checkListSelect li.selectedItem {
+    background: #E4EDF1;
+    margin: 0;
+}
+
+ul.checkListSelect li.listGroup {
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+    padding: 5px;
+    background: #FAFAF8;
+}

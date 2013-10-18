@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2009 Altum, Inc.
+  - All rights reserved.
+  -
+  - Root application context for the AltumGRS application.
+  - Web-specific beans are defined in "altumgrs-servlet.xml".
+  -->
+<beans>
+	<import resource="useContext.xml"/>
+
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/sqlMapConfig.xml</value>
+		</property>
+		<property name="dataSource"><ref bean="grsDatabase"/></property> 
+		<property name="lobHandler"><ref bean="oracleLobHandler"/></property>
+	</bean>
+
+	<!-- NativeJdbcExtractor for the Commons DBCP connection pool above -->
+	<!-- (just needed for oracleLobHandler) -->
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"
+			lazy-init="true"/>
+
+	<!-- LobHandler for Oracle JDBC drivers -->
+	<!-- (refers to the NativeJdbcExtractor above to get access to native OracleConnections) -->
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+			lazy-init="true">
+		<property name="nativeJdbcExtractor"><ref local="nativeJdbcExtractor"/></property>
+	</bean>
+
+	<!-- LobHandler for well-behaved JDBC drivers -->
+	<!-- (simply delegating to corresponding PreparedStatement and ResultSet methods) -->
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+			lazy-init="true"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename"><value>messages</value></property>
+	</bean>
+
+	<!-- Transaction manager for a single JNDI JDBC DataSource -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource"><ref bean="grsDatabase"/></property>
+	</bean>
+						
+	<!--  Transaction proxy, this is a generic location for specifying method names that should be transactional -->
+	<!--  Beans which need special transaction handling can extend this and inject it into the proxy -->
+	<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager"><ref bean="transactionManager"/></property>
+		<property name="transactionAttributes">
+		    <props>
+		      <prop key="activate*">PROPAGATION_REQUIRED</prop>
+		      <prop key="copy*">PROPAGATION_REQUIRED</prop>
+		      <prop key="deactivate*">PROPAGATION_REQUIRED</prop>
+		      <prop key="delete*">PROPAGATION_REQUIRED</prop>
+		      <prop key="disassociate*">PROPAGATION_REQUIRED</prop>
+		      <prop key="drop*">PROPAGATION_REQUIRED</prop>
+		      <prop key="insert*">PROPAGATION_REQUIRED</prop>
+		      <prop key="move*">PROPAGATION_REQUIRED</prop>
+		      <prop key="reassign*">PROPAGATION_REQUIRED</prop>
+		      <prop key="rebuild*">PROPAGATION_REQUIRED</prop>
+		      <prop key="save*">PROPAGATION_REQUIRED</prop>
+		      <prop key="truncate*">PROPAGATION_REQUIRED</prop>
+		      <prop key="update*">PROPAGATION_REQUIRED</prop>
+
+		      <prop key="create*">PROPAGATION_SUPPORTS</prop>
+		      <prop key="get*">PROPAGATION_SUPPORTS</prop>
+		      <prop key="generate*">PROPAGATION_SUPPORTS</prop>
+		      <prop key="is*">PROPAGATION_SUPPORTS</prop>
+		      <prop key="set*">PROPAGATION_SUPPORTS</prop>
+		      <prop key="validate*">PROPAGATION_SUPPORTS</prop>
+
+		      <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+		    </props>
+		</property>
+	</bean>
+		
+	<bean id="altumMailSender" name="" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host"><value>mail.altum.com</value></property>
+		<property name="username"><value>xx</value></property>
+		<property name="password"><value>xx</value></property>
+	</bean>			
+	
+	<bean id="nihMailSender" name="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host"><value>mailfwd.nih.gov</value></property>
+	</bean>			
+	
+	<bean id="jsonSerializer" class="com.altum.spring.web.util.JsonSerializerSupport">
+
+	</bean>
+					
+	<!--  DAOs -->
+	<bean id="templateDao" abstract="true">
+		<property name="sqlMapClient"><ref bean="sqlMapClient" /></property>
+	</bean>
+
+</beans>
+

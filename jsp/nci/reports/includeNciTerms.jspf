@@ -1,0 +1,41 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 11718 Bowman Green Drive, Reston, VA 20190 USA
+ * Copyright (c) 2000-2009 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+ <%@page language="java" session="true" 
+		import="com.altum.beans.OptionSelection,
+				com.altum.components.renderers.OptionSelectionRenderer,
+				com.altum.jdbc.web.ReportController,
+				com.altum.beans.Code,
+				java.util.List" %>
+<%
+		List<String> mappedNciTerms = (List<String>)request.getAttribute("mappedNciTerms");
+		List<Code> reportNCICodes = (List<Code>)session.getAttribute(ReportController.SESSION_REPORT_NCI_CODES);
+		OptionSelection nciTerms = new OptionSelection("nciTerms");
+		nciTerms.setLHSTitle("Available");
+		nciTerms.setRHSTitle("Selected");
+		for(int i=0;i<reportNCICodes.size();i++){
+			boolean bMappedTerm = false;
+			if(mappedNciTerms!=null){
+				for(int j=0;j<mappedNciTerms.size();j++){
+					if(((Code)reportNCICodes.get(i)).getName().equals(mappedNciTerms.get(j))){
+						bMappedTerm = true;
+						break;
+					}
+				}
+			}
+			if(bMappedTerm){
+				nciTerms.addRHSItem(((Code)reportNCICodes.get(i)).getName(), "", "orgId:" + ((Code)reportNCICodes.get(i)).getOrgId() + "," +
+						 "typeId:" + ((Code)reportNCICodes.get(i)).getTypeId() + "," +
+						 "codeId:" + ((Code)reportNCICodes.get(i)).getId() + ";");
+			}else{
+				nciTerms.addLHSItem(((Code)reportNCICodes.get(i)).getName(), "", "orgId:" + ((Code)reportNCICodes.get(i)).getOrgId() + "," +
+						 "typeId:" + ((Code)reportNCICodes.get(i)).getTypeId() + "," +
+						 "codeId:" + ((Code)reportNCICodes.get(i)).getId() + ";");
+			}
+		}
+		%>
+<%= OptionSelectionRenderer.getOptionSelectionElement(nciTerms,"left",8)%>

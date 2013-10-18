@@ -1,0 +1,23 @@
+<%--
+/**
+ * Developed by Altum, Inc.
+ * 12100 Sunset Hills Rd, Suite 101, Reston, VA 20190 USA
+ * Copyright (c) 2000-2010 Altum, Inc.
+ * All rights reserved.
+ */ --%>
+<%@page language="java" session="true" errorPage="errorPage.jsp"  %>
+<%@taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core"%>
+<% response.setContentType("text/css"); %>
+
+button {
+	height:21px; width: 21px;
+	background:center no-repeat;
+	cursor: hand;
+}
+
+button#edit {
+	background-image: url(<c:url value="/images/edit16.gif" />);
+}
+button#delete {
+	background-image: url(<c:url value="/images/delete16.gif" />);
+}

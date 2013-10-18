@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+  - Developed by Altum, Inc.
+  - 11718 Bowman Green Drive, Reston, VA 20190 USA
+  - Copyright (c) 2000-2009 Altum, Inc.
+  - All rights reserved.
+  -->
+  <beans>
+	<!-- DAOs -->
+	<bean id="jdbcDao" class="com.altum.jdbc.dao.ibatis.JdbcDao" parent="templateDao" />
+	
+	<!-- Managers -->
+	<bean id="jdbcManagerTarget" class="com.altum.jdbc.manager.impl.JdbcManager">
+		<property name="jdbcDao"><ref bean="jdbcDao" /></property>
+	</bean>
+	
+	<!--  Proxy Managers: used to inject interceptors, e.g. transaction interceptors -->
+	<bean id="jdbcManager" parent="baseTransactionProxy">
+		<property name="target"><ref bean="jdbcManagerTarget" /></property>
+	</bean>
+	
+	<bean id="jdbcController" class="com.altum.jdbc.web.JdbcController">
+		<property name="jdbcManager"><ref bean="jdbcManager" /></property>
+		<property name="methodNameResolver"><ref local="jdbcControllerMethodResolver"/></property>
+	</bean>
+	<bean id="reportController" class="com.altum.jdbc.web.ReportController">
+		<property name="jdbcManager"><ref bean="jdbcManager" /></property>
+		<property name="methodNameResolver"><ref local="reportControllerMethodResolver"/></property>
+	</bean>
+	<bean id="systemController" class="com.altum.jdbc.web.SystemController">
+		<property name="jdbcManager"><ref bean="jdbcManager" /></property>
+		<property name="methodNameResolver"><ref local="systemControllerMethodResolver"/></property>
+	</bean>
+	<bean id="exportController" class="com.altum.jdbc.web.ExportController">
+		<property name="methodNameResolver"><ref local="exportControllerMethodResolver"/></property>
+	</bean>
+	<bean id="jdbcControllerMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/report/jmesa/cacheReportParameters.grs">cacheReportParameters</prop>
+				<prop key="/report/jmesa/getReportData.grs">getResultSetData</prop>
+				<prop key="/report/jmesa/createAndFillTables.grs">createAndFillTables</prop>
+				<prop key="/report/jmesa/truncateAndFillTables.grs">truncateAndFillTables</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="reportControllerMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/report/rcdc/runRcdcComparisonReport.grs">runRcdcComparisonReport</prop>
+				<prop key="/report/rcdc/runQueryReport.grs">runQueryReport</prop>
+				<prop key="/report/rcdc/runProjectCodingReport.grs">runProjectCodingReport</prop>
+				<prop key="/report/rcdc/saveMapping.grs">saveMapping</prop>
+				<prop key="/report/rcdc/getMappedNciTermsForObName.grs">getMappedNciTermsForObName</prop>
+				<prop key="/report/rcdc/manageCustomMapping.grs">manageCustomMapping</prop>
+				<prop key="/report/rcdc/deleteCustomTerm.grs">deleteCustomTerm</prop>	
+				<prop key="/report/rcdc/editCustomTerm.grs">editCustomTerm</prop>
+				<prop key="/report/rcdc/exportProjectCodingReportToWord.grs">exportProjectCodingReportToWord</prop>
+				<prop key="/report/rcdc/getMappingParameters.grs">getMappingParameters</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="systemControllerMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/report/cacheSystemParameters.grs">cacheSystemParameters</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="exportControllerMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/report/generateSpreadsheet.grs">generateSpreadsheet</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

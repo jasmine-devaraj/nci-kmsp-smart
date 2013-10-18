@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "sql-map-2.dtd">
+<!--
+  - Developed by Altum, Inc.
+  - 12100 Sunset Hills Rd, Suite 101, Reston, VA 20190 USA
+  - Copyright (c) 2000-2010 Altum, Inc.
+  - All rights reserved.
+  -->
+<sqlMap namespace="jdbc">
+<typeAlias type="com.altum.beans.Code" alias = "code" />
+<typeAlias type="com.altum.beans.ProjectCoding" alias = "projectCoding" />
+<resultMap id="code-result" class="code">
+		<result property="id" column="code" />
+		<result property="typeId" column="type" />
+		<result property="orgId" column="org_id" />
+		<result property="name" column="code_name" />
+</resultMap>
+<resultMap id="projectCoding-result" class="projectCoding">
+		<result property="applID" column="appl_id" />
+		<result property="fy" column="fy" />
+		<result property="projNum" column="proj_num" />
+		<result property="projTitle" column="proj_title" />
+		<result property="orgName" column="org_name" />
+		<result property="city" column="city_name" />
+		<result property="state" column="state" />
+		<result property="pi" column="pi_name" />
+		<result property="po" column="po_name" />
+		<result property="cancerActivity" column="cancer_act" />
+		<result property="division" column="division" />
+		<result property="projStartDate" column="project_period_start_date" />
+		<result property="projEndDate" column="project_period_end_date" />
+		<result property="amountOblig" column="amount_oblig" />
+		<result property="typeId" column="type" />
+		<result property="code" column="code" />
+		<result property="codeName" column="code_name" />
+		<result property="percentRel" column="code_percent_relevance" />
+		<result property="strRcdcCodeList" column="rcdc_code_list" />
+</resultMap>	
+<select id="getReportFY" resultClass="string">
+	select distinct fy 
+	  from rcdc_appls_admin_info 
+	 order by 1 desc
+</select>
+<select id="getReportDisease" resultClass="string">
+	select ob_name from (
+        select distinct ob_name 
+	  from ob_collection_categories_t  order by 1)
+	 union all 
+	 select '--------------------------------------------------------------------------------------' from dual
+	 union all
+	select ob_name from (select distinct custom_name as ob_name
+	  from ob_collection_code_mapping_t where custom_name is not null order by 1)
+</select>
+<select id="getReportMechanism" resultClass="string">
+	select distinct activity_code from rcdc_appls_admin_info
+	 union
+	select distinct activity_code from rcdc_projlist_header
+	 order by 1
+</select>
+<select id="getCancerActivity" resultClass="string">
+	select distinct cancer_activity_description as cancer_act 
+	  from rcdc_nci_appls_admin_info where cancer_activity_description is not null  order by 1
+</select>
+<select id="getDivision" resultClass="string">
+	select distinct pd_division_abbreviation as division 
+	  from rcdc_nci_appls_admin_info where pd_division_abbreviation is not null  order by 1
+</select>
+<select id="getPDDescription" resultClass="string">
+	select distinct PD_ORGANIZATION_DESCRIPTION as pd_desc 
+	  from rcdc_nci_appls_admin_info where pd_division_description is not null  order by 1
+</select>
+<select id="getRfaPaNumber" resultClass="string">
+	select distinct rfa_pa_number
+	  from rcdc_appls_admin_info where rfa_pa_number is not null order by 1
+</select>
+
+<select id="getReportNCICodes" resultMap="code-result">
+	select distinct 1 as org_id, type, code, type || ' - ' || code_name as code_name 
+	  from raeb_project_codes 
+	 order by type, code_name
+</select>
+<delete id="deleteOBMapping">
+	delete from ob_collection_code_mapping_t  
+	 where ob_name = #ob_name# 
+</delete>
+<insert id="insertOBMapping">
+	insert into ob_collection_code_mapping_t (ob_name,org_id,type_id,code_id, custom_name)
+	values(#ob_name#,#org_id#,#type_id#,#code_id#,#custName#)
+</insert>
+<select id="isCustomNameTaken" resultClass="string">
+	select case when count(*)>0 then 'Y' else 'N' end as custom_name_taken from ob_collection_code_mapping_t where custom_name = #custName#
+</select>
+<select id="getProjectCoding" resultMap="projectCoding-result">
+	select appl_id, fy, appl_type || proj_num as proj_num, proj_title, org_name, city_name, state, pi_name, po_name, cancer_activity_description as cancer_act, pd_division_abbreviation  as division
+        , project_period_start_date, project_period_end_date, coalesce(obligated_nci_amt,0) as amount_oblig, type, code, code_name, code_percent_relevance, getrcdccodelist(fy,appl_id) as rcdc_code_list 
+ 	  from rcdc_appls_admin_info left outer join raeb_project_codes using (appl_id) left outer join rcdc_nci_appls_admin_info using (appl_id)
+ 	 where appl_id in
+ 	 <isPropertyAvailable property="runBySerialNum">
+ 	 (select distinct appl_id
+ 	    from rcdc_appls_admin_info
+ 	   where serial_num in
+ 	   <iterate property="applIDorSerial" open="(" close=")" conjunction=",">
+	     		#applIDorSerial[]#
+	 	</iterate>
+ 	   )
+ 	 </isPropertyAvailable>
+ 	 <isNotPropertyAvailable property="runBySerialNum">
+ 	 <iterate property="applIDorSerial" open="(" close=")" conjunction=",">
+	     		#applIDorSerial[]#
+	 </iterate>
+	 </isNotPropertyAvailable>
+ 	 order by fy desc, appl_id, type desc, code_name asc
+</select>
+<select id="getMappedNciTermsForObName" resultClass="string">
+	select distinct raeb.type || ' - ' || raeb.code_name 
+	  from ob_collection_code_mapping_t obm 
+	  join raeb_project_codes raeb on (obm.type_id = raeb.type and obm.code_id = raeb.code) 
+	 where ob_name = #ob_name# and custom_name is null
+	 order by 1
+</select>
+<select id="getCustomNihTerms" resultClass="string">
+	select distinct custom_name 
+	  from ob_collection_code_mapping_t 
+	 where custom_name is not null 
+	 order by 1
+</select>
+<delete id="deleteCustomTerm">
+	delete from ob_collection_code_mapping_t
+	 where custom_name = #custName#
+</delete>
+<select id="getNihTermForCustomName" resultClass="string">
+	select distinct ob_name
+	  from ob_collection_code_mapping_t
+	 where custom_name = #custName#
+</select>
+<select id="getMappedNciTermsForCustomName" resultClass="string">
+	select distinct raeb.type || ' - ' || raeb.code_name 
+	  from ob_collection_code_mapping_t obm 
+	  join raeb_project_codes raeb on (obm.type_id = raeb.type and obm.code_id = raeb.code) 
+	 where custom_name = #custName#
+	 order by 1
+</select>
+<select id="getLastRefreshDate" resultClass="string">
+	select pvalue 
+	  from smart_properties_t 
+	 where pname = 'LastRunDate'
+</select>
+<select id="getLinkAcctDaysLeft" resultClass="string">
+	select pvalue 
+	  from smart_properties_t 
+	 where pname = 'LinkAcctDaysLeft'
+</select>
+</sqlMap>
