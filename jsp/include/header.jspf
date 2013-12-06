@@ -18,8 +18,9 @@
 		    <div id="systemInfoDiv">
 		    <% if(lastRefreshDate != null) { %>
 			    	Data last refreshed <%=lastRefreshDate%><br>
-			    	LINK account will expire in less than <%=linkAcctDaysLeft%> days!
-		    <% } %>
+			    	<%if(java.lang.Integer.parseInt(linkAcctDaysLeft)<31) { %>
+   					LINK account will expire in less than <%=linkAcctDaysLeft%> days!
+		    <% }} %>
 			</div>
 		    </td>
     	</tr>

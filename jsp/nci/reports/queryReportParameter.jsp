@@ -331,7 +331,7 @@ session.removeAttribute(JdbcController.SESSION_EXPORT_RESULTSETDATA_LIST_TOKEN);
 					<td valign='top' width='20%'>
 						<select multiple name='rcdcFY' id ='rcdcFY' size='3'>
 							<%for(int i=0;i<reportFy.size();i++){%>
-								<option value='<%=reportFy.get(i)%>'><%=reportFy.get(i)%></option>
+								<option value='<%=reportFy.get(i)%>' <%if(i==0){ %> selected <% } %>><%=reportFy.get(i)%></option>
 							<%}%>
 						</select>
 					</td>
